@@ -1,5 +1,7 @@
 # lightsaber-app
 
+Senior Project for Tyler Jerd, Sam Meyerson, Nick Orrick
+
 To open the project:
 1. clone it to your local machine
 2. go into the Unity Hub and click  "add" and add the folder containing the repo
