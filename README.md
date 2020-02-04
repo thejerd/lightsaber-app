@@ -8,3 +8,6 @@ To open the project:
 3. make sure you have the correct version of unity installed
 4. click on the project name in the Unity Hub to open it
 5. with unity window open go to file -> open scene and choose "Saber 2.unity"
+
+
+test
