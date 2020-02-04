@@ -54,9 +54,9 @@ namespace EasyWiFi.ServerControls
 
         public void mapDataStructureToAction(int index)
         {
-            recievedPos.x = 15*ar[index].POSITION_X-17;
-            recievedPos.y = 15*ar[index].POSITION_Y-25;
-            recievedPos.z = 15*ar[index].POSITION_Z-245;
+            recievedPos.x = 15*ar[index].POSITION_X;
+            recievedPos.y = 15*ar[index].POSITION_Y;
+            recievedPos.z = 15*ar[index].POSITION_Z;
 
             transform.position = recievedPos;
 
