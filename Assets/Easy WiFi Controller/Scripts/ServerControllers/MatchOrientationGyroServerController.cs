@@ -49,16 +49,16 @@ namespace EasyWiFi.ServerControls
         void Update()
         {
             //iterate over the current number of connected controllers
-            print("hello " + currentNumberControllers);
+            //print("hello " + currentNumberControllers);
             for (int i = 0; i < currentNumberControllers; i++)
             {
                 frameSinceConnected++;
                 if (gyro[i] != null && gyro[i].serverKey != null && gyro[i].logicalPlayerNumber != EasyWiFiConstants.PLAYERNUMBER_DISCONNECTED)
-                {   
+                {
                     // print("made it here");
                     if(orientation.eulerAngles != emptyEuler.eulerAngles && firstConnection == false){
                         firstConnection = true;
-                        mapinitialOrientation(i); 
+                        mapinitialOrientation(i);
                     }
                     mapDataStructureToAction(i);
                 }
@@ -97,7 +97,7 @@ namespace EasyWiFi.ServerControls
         public void swingSound(Quaternion orientation){
             if ((Mathf.Abs (orientation.x - lastFrameOrientation.x) > 0.2) || (Mathf.Abs (orientation.y - lastFrameOrientation.y) > 0.2) ||
                 (Mathf.Abs (orientation.z - lastFrameOrientation.z) > 0.2)) {
-                if (!heavySwing1.GetComponent<AudioSource>().isPlaying || !heavySwing2.GetComponent<AudioSource>().isPlaying 
+                if (!heavySwing1.GetComponent<AudioSource>().isPlaying || !heavySwing2.GetComponent<AudioSource>().isPlaying
                     || !lightSwing1.GetComponent<AudioSource>().isPlaying || !lightSwing2.GetComponent<AudioSource>().isPlaying) {
                     int rando = UnityEngine.Random.Range (0, 2);
                     if (rando == 1)
@@ -108,7 +108,7 @@ namespace EasyWiFi.ServerControls
             }
             /*if ((Mathf.Abs (orientation.x - lastFrameOrientation.x) > 0.2) || (Mathf.Abs (orientation.y - lastFrameOrientation.y) > 0.2) ||
                 (Mathf.Abs (orientation.z - lastFrameOrientation.z) > 0.2)) {
-                if (!heavySwing1.GetComponent<AudioSource>().isPlaying || !heavySwing2.GetComponent<AudioSource>().isPlaying 
+                if (!heavySwing1.GetComponent<AudioSource>().isPlaying || !heavySwing2.GetComponent<AudioSource>().isPlaying
                     || !lightSwing1.GetComponent<AudioSource>().isPlaying || !lightSwing2.GetComponent<AudioSource>().isPlaying) {
                     int rando = UnityEngine.Random.Range (0, 1);
                     if (rando > 1)

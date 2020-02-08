@@ -45,7 +45,7 @@ namespace EasyWiFi.ServerControls
             {
                 if (ar[i] != null && ar[i].serverKey != null && ar[i].logicalPlayerNumber != EasyWiFiConstants.PLAYERNUMBER_DISCONNECTED)
                 {
-                    print("Connected");
+                    //print("Connected");
                     mapDataStructureToAction(i);
                 }
             }
@@ -60,7 +60,7 @@ namespace EasyWiFi.ServerControls
 
             transform.position = recievedPos;
 
-            print(recievedPos.x + " " + recievedPos.y + " " + recievedPos.z);
+            //print(recievedPos.x + " " + recievedPos.y + " " + recievedPos.z);
         }
 
         public void checkForNewConnections(bool isConnect, int playerNumber)
