@@ -19,3 +19,9 @@ To push changes to dev branch:
 7. Set the 'base' branch as the branch you want to push the changes to
 8. Set the 'compare' branch as the branch that you committed your local changes to
 9. Create pull request
+
+
+Note:
+match up length of animation for droid with laser
+test collider capsule around laser
+^implement for every droid/turret
