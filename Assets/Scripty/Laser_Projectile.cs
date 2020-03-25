@@ -10,7 +10,7 @@ public class Laser_Projectile : MonoBehaviour
 
     void Start()
     {
-        //prefab=Resources.Load("saber MK-4") as GameObject;
+        //this.transform.LookAt(new Vector3(0f,0f,0f ));
 
     }
 
@@ -19,11 +19,9 @@ public class Laser_Projectile : MonoBehaviour
     {
 
 
-      //transform.Translate(0.0f , 0.0f, mspeed*Time.deltaTime );
-      this.transform.Translate(0.0f* Time.deltaTime , -13.0f*mspeed* Time.deltaTime, -17.65f*mspeed*Time.deltaTime, saber.transform);
-      //this.transform.Translate(0.0f* Time.deltaTime , 0.0f* Time.deltaTime, mspeed*Time.deltaTime, Space.Self );
-      //this.transform.Translate(0.0f* Time.deltaTime , mspeed*Time.deltaTime, 0.0f* Time.deltaTime, Space.World );
-      //this.transform.Translate( mspeed*Time.deltaTime, 0.0f* Time.deltaTime,0.0f* Time.deltaTime , Space.Self );
+      //this.transform.Translate(0.0f* Time.deltaTime , -13.0f*mspeed* Time.deltaTime, -17.65f*mspeed*Time.deltaTime, saber.transform);
+      //this.transform.Translate(0.0f* Time.deltaTime , 0.0f*mspeed* Time.deltaTime, -17.65f*mspeed*Time.deltaTime, saber.transform);
+      this.transform.Translate(0.0f* Time.deltaTime , 10.0f*mspeed* Time.deltaTime, 0.0f*mspeed*Time.deltaTime, saber.transform);
 
     }
     void OnTriggerEnter(Collider otherguy){

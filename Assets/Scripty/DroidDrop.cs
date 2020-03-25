@@ -21,9 +21,7 @@ public class DroidDrop : MonoBehaviour
 
       //transform.Translate(0.0f , 0.0f, mspeed*Time.deltaTime );
       this.transform.Translate(0.0f* Time.deltaTime , -10.0f*mspeed* Time.deltaTime, 0.0f*mspeed*Time.deltaTime, droid.transform);
-      //this.transform.Translate(0.0f* Time.deltaTime , 0.0f* Time.deltaTime, mspeed*Time.deltaTime, Space.Self );
-      //this.transform.Translate(0.0f* Time.deltaTime , mspeed*Time.deltaTime, 0.0f* Time.deltaTime, Space.World );
-      //this.transform.Translate( mspeed*Time.deltaTime, 0.0f* Time.deltaTime,0.0f* Time.deltaTime , Space.Self );
+
 
     }
     void OnTriggerEnter(Collider other){
