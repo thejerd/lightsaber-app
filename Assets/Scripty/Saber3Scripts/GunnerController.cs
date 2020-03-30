@@ -17,20 +17,22 @@ public class GunnerController : MonoBehaviour
     public GameObject tl;
     public GameObject br;
     public GameObject bl;
+    public GameObject tip;
     //public bool hitSaber = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
-      InvokeRepeating("Lasers", timeToStart_Lasers, repeaterTime_Lasers);
-      InvokeRepeating("Shooter", timeToStart, repeaterTime);
-      rb=this.GetComponent<Rigidbody>();
-      direction = Vector3.down;
       tr.SetActive(false);
       tl.SetActive(false);
       br.SetActive(false);
       bl.SetActive(false);
+      tip.SetActive(false);
+      InvokeRepeating("Lasers", timeToStart_Lasers, repeaterTime_Lasers);
+      InvokeRepeating("Shooter", timeToStart, repeaterTime);
+      rb=this.GetComponent<Rigidbody>();
+      direction = Vector3.down;
+
 
 
     }
@@ -53,6 +55,7 @@ public class GunnerController : MonoBehaviour
       tl.SetActive(true);
       br.SetActive(true);
       bl.SetActive(true);
+      tip.SetActive(true);
 
 
 
@@ -71,6 +74,7 @@ public class GunnerController : MonoBehaviour
       tl.SetActive(false);
       br.SetActive(false);
       bl.SetActive(false);
+      tip.SetActive(false);
       //didItHit.hitSaber
       Debug.Log(didItHit.hitSaber);
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrackCollisions : MonoBehaviour
 {
-  public void OnCollisionAppend(Collision collision){
+   void OnCollisionEnter(Collision other){
 
 
     Debug.Log("Collision!");

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CapsuleController : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class CapsuleController : MonoBehaviour
     public Vector3 direction;
     public Vector3 newPosition;
     public bool hitSaber = false;
+    public GameObject textObject;
+    public int collisionCount;
     void Start()
     {
         rb=this.GetComponent<Rigidbody>();
         direction = Vector3.up;
+
 
     }
 
@@ -31,12 +35,21 @@ public class CapsuleController : MonoBehaviour
       Debug.Log(other.gameObject.name);
 
       if(other.gameObject.name=="New Kylo"){
-          //speed=-speed;
+          speed=-speed;
           //rb.velocity=Vector3.zero;
           //direction=Vector3.down;
+        //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
           //rb.MovePosition(newPosition);
-
-          this.transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
+          //collisionCount=collisionCount+1;
+          //string text=textObject.GetComponent<Text>().text;
+          //string s;
+          //s = collisionCount.ToString();
+          //string text="Collisions: " + s;
+          //textObject.GetComponent<Text>().text=text;
+          //Debug.Log(text);
+          //gameObject.GetComponent<Text>().text = "Your string here, yo!";
+          ScoreTracker.scoreCount+=1;
+          //this.transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
           //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
       }
       else if(other.gameObject.name=="Plane"){
