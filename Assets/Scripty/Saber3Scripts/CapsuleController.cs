@@ -13,10 +13,14 @@ public class CapsuleController : MonoBehaviour
     public bool hitSaber = false;
     public GameObject textObject;
     public int collisionCount;
+    public GameObject player;
+    public GameObject droid;
+    //public GameObject bullet;
     void Start()
     {
         rb=this.GetComponent<Rigidbody>();
         direction = Vector3.up;
+        //direction=transform.parent.TransformDirection(Vector3.forward);
 
 
     }
@@ -24,18 +28,28 @@ public class CapsuleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    //  rb=GetComponent<Rigidbody>();
-        //rb.MovePosition(Vector3.zero);
         //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
-        rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
+        //rb.AddRelativeForce(direction.forward, ForceMode.VelocityChange);
+        //rb.AddForce(direction.forward * speed);
+        //rb.velocity= this.transform.up*-speed*20;
+        rb.velocity= this.transform.parent.forward*-speed*20;
+        //Vector3 direction= this.transform.parent.
+        //transform.LookAt(Vector3.down);
         //use rb.MovePosition(position) with position as the reflected position
 
+
+        //  rb=GetComponent<Rigidbody>();
+            //rb.MovePosition(Vector3.zero);
+            //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
+            //droid.transform.LookAt(Vector3.zero);
     }
     void OnCollisionEnter(Collision other){
-      Debug.Log(other.gameObject.name);
+      Debug.Log("Collided with: ");
+      Debug.Log( other.gameObject.name);
 
       if(other.gameObject.name=="New Kylo"){
           speed=-speed;
+          //rb.rotation = Quaternion.identity;
           //rb.velocity=Vector3.zero;
           //direction=Vector3.down;
         //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
@@ -52,14 +66,16 @@ public class CapsuleController : MonoBehaviour
           //this.transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
           //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
       }
-      else if(other.gameObject.name=="Plane"){
+      else if(other.gameObject.name=="fighter_drone"){
+        Destroy (this.gameObject);
           //mspeed=-mspeed;
       }
       else if(hitSaber){
         rb.velocity=Vector3.zero;
       }
       else{
-        //speed=0;
+        //rb.velocity=Vector3.zero;
+        Destroy (this.gameObject);
       }
       //mspeed=-mspeed;
     }

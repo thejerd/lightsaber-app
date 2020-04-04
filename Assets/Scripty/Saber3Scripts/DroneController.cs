@@ -50,6 +50,7 @@ public class DroneController : MonoBehaviour
     /*GameObject instaBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
     Rigidbody rb = instaBullet.GetComponent<Rigidbody>();
     rb.AddRelativeForce(Vector3.up * speed);*/
+    transform.LookAt(Vector3.zero);
 
 
 
@@ -74,17 +75,20 @@ public class DroneController : MonoBehaviour
 
   void Shooter(){
 
-    //rotationCorrection= Quaternion.AngleAxis(30, Vector3.forward);
-    //GameObject instaBullet = Instantiate(bullet, transform.position+vectorCorrector, Quaternion.identity) as GameObject;
-    GameObject instaBullet = Instantiate(bullet, transform.position+vectorCorrector, Quaternion.Euler(-90, 0, 0)) as GameObject;
-    Debug.Log("VECTOR IM LOOKING FOR:: "+ this.transform.position+vectorCorrector);
+    Vector3 thisWay= this.transform.up;
+    //GameObject instaBullet = Instantiate(bullet, transform.position+vectorCorrector, Quaternion.LookRotation(thisWay)) as GameObject;
+    GameObject instaBullet = Instantiate(bullet, tip.transform.position+vectorCorrector, Quaternion.LookRotation(thisWay)) as GameObject;
+    instaBullet.transform.parent = this.transform;
     Rigidbody rb = instaBullet.GetComponent<Rigidbody>();
-    CapsuleController didItHit = instaBullet.GetComponent<CapsuleController>();
     r.SetActive(false);
     l.SetActive(false);
-
     tip.SetActive(false);
-    //didItHit.hitSaber
+
+
+
+
+    CapsuleController didItHit = instaBullet.GetComponent<CapsuleController>();
+    Debug.Log("VECTOR IM LOOKING FOR:: "+ this.transform.position+vectorCorrector);
     Debug.Log(didItHit.hitSaber);
 
 
