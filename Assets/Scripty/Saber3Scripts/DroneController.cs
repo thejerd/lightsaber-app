@@ -14,12 +14,25 @@ public class DroneController : MonoBehaviour
   public GameObject l;
   public GameObject tip;
   public float speed = 5f;
-  public float timeToStart=1.0f;
-  public float repeaterTime=1.0f;
-  public float timeToStart_Sound=1.0f;
-  public float repeaterTime_Sound=1.0f;
+  public float timeToStart_Anim_L=1.0f;
+  public float repeaterTime_Anim_L=1.0f;
+  public float timeToStart_Anim_R=1.0f;
+  public float repeaterTime_Anim_R=1.0f;
+  public float timeToStart_Anim_L_To_C=1.0f;
+  public float repeaterTime_Anim_L_To_C=1.0f;
+  public float timeToStart_Anim_R_To_C=1.0f;
+  public float repeaterTime_Anim_R_To_C=1.0f;
+
+
   public float timeToStart_Lasers=1.0f;
   public float repeaterTime_Lasers=1.0f;
+  public float timeToStart_Sound=1.0f;
+  public float repeaterTime_Sound=1.0f;
+  public float timeToStart_Shoot=1.0f;
+  public float repeaterTime_Shoot=1.0f;
+  public Animation anim;
+  public Vector3 saberPosition;
+
 
 
 
@@ -34,10 +47,16 @@ public class DroneController : MonoBehaviour
 
     tip.SetActive(false);
     InvokeRepeating("Lasers", timeToStart_Lasers, repeaterTime_Lasers);
-    InvokeRepeating("Shooter", timeToStart, repeaterTime);
+    InvokeRepeating("Shooter", timeToStart_Shoot, repeaterTime_Shoot);
     InvokeRepeating("Laser_Sound", timeToStart_Sound, repeaterTime_Sound);
+    InvokeRepeating("moveLeft", timeToStart_Anim_L, repeaterTime_Anim_L);
+    InvokeRepeating("moveRight", timeToStart_Anim_R, repeaterTime_Anim_R);
+    InvokeRepeating("left_To_Center", timeToStart_Anim_L_To_C, repeaterTime_Anim_L_To_C);
+    InvokeRepeating("right_To_Center", timeToStart_Anim_R_To_C, repeaterTime_Anim_R_To_C);
+
     rb=this.GetComponent<Rigidbody>();
     direction = Vector3.down;
+    //Vector3 newPlace= (0.0,20.0,0.0);
 
 
 
@@ -50,7 +69,8 @@ public class DroneController : MonoBehaviour
     /*GameObject instaBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
     Rigidbody rb = instaBullet.GetComponent<Rigidbody>();
     rb.AddRelativeForce(Vector3.up * speed);*/
-    transform.LookAt(Vector3.zero);
+    //transform.LookAt(Vector3.zero);
+    transform.LookAt(saberPosition);
 
 
 
@@ -67,6 +87,26 @@ public class DroneController : MonoBehaviour
 
 
   }
+
+  void moveLeft(){
+    anim.Play("Droid_Move_Left");
+  }
+
+  void moveRight(){
+    anim.Play("Droid_Move_Right");
+  }
+
+  void left_To_Center(){
+    anim.Play("R_To_Center");
+    //Messed them up lol
+  }
+
+  void right_To_Center(){
+    anim.Play("L_To_Center");
+    //Messed them up lol
+  }
+
+
 
   void Laser_Sound(){
     source.PlayOneShot (alarm);
