@@ -69,8 +69,8 @@ public class DroneController : MonoBehaviour
     /*GameObject instaBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
     Rigidbody rb = instaBullet.GetComponent<Rigidbody>();
     rb.AddRelativeForce(Vector3.up * speed);*/
-    //transform.LookAt(Vector3.zero);
-    transform.LookAt(saberPosition);
+    transform.LookAt(Vector3.zero);
+    //transform.LookAt(saberPosition);
 
 
 
@@ -89,20 +89,24 @@ public class DroneController : MonoBehaviour
   }
 
   void moveLeft(){
-    anim.Play("Droid_Move_Left");
+    //anim.Play("Droid_Move_Left");
+    anim.Play("droid_Training_R");
   }
 
   void moveRight(){
-    anim.Play("Droid_Move_Right");
+    //anim.Play("Droid_Move_Right");
+    anim.Play("droid_Training_L");
   }
 
   void left_To_Center(){
-    anim.Play("R_To_Center");
+    //anim.Play("R_To_Center");
+    anim.Play("training_R_To_C");
     //Messed them up lol
   }
 
   void right_To_Center(){
-    anim.Play("L_To_Center");
+    //anim.Play("L_To_Center");
+    anim.Play("training_L_To_C");
     //Messed them up lol
   }
 
