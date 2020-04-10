@@ -11,10 +11,10 @@ public class CapsuleController : MonoBehaviour
     public Vector3 direction;
     public Vector3 newPosition;
     public bool hitSaber = false;
-    public GameObject textObject;
+    //public GameObject textObject;
     public int collisionCount;
-    public GameObject player;
-    public GameObject droid;
+  //  public GameObject player;
+  //  public GameObject droid;
     //public GameObject bullet;
     void Start()
     {
@@ -68,6 +68,16 @@ public class CapsuleController : MonoBehaviour
       }
       else if(other.gameObject.name=="fighter_drone"){
         Destroy (this.gameObject);
+          //mspeed=-mspeed;
+      }
+      else if(other.gameObject.name=="fighter_drone_1"){
+        Destroy (this.gameObject);
+        DroidScoreTracker.d_scoreCount+=1;
+          //mspeed=-mspeed;
+      }
+      else if(other.gameObject.name=="Droid_Holder"){
+        Destroy (this.gameObject);
+        DroidScoreTracker.d_scoreCount+=1;
           //mspeed=-mspeed;
       }
       else if(hitSaber){
