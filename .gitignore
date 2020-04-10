@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Large Asset Test files
+KitchenSink/Libraries/
+SteeringWheelClient/Libraries/
+SteeringWheelTest/Libraries/
+
