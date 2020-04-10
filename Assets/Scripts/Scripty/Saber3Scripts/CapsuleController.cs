@@ -47,7 +47,7 @@ public class CapsuleController : MonoBehaviour
       Debug.Log("Collided with: ");
       Debug.Log( other.gameObject.name);
 
-      if(other.gameObject.name=="New Kylo"){
+      if(other.gameObject.name=="New Kylo 3-23-20"){
           speed=-speed;
           //rb.rotation = Quaternion.identity;
           //rb.velocity=Vector3.zero;
@@ -75,7 +75,7 @@ public class CapsuleController : MonoBehaviour
       }
       else{
         //rb.velocity=Vector3.zero;
-        Destroy (this.gameObject);
+        //Destroy (this.gameObject);
       }
       //mspeed=-mspeed;
     }
