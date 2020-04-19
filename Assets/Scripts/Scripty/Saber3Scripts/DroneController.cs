@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
+  public GameObject droidSpawner;
   public GameObject bullet;
   public AudioClip alarm;
   private AudioSource source;
@@ -46,6 +47,7 @@ public class DroneController : MonoBehaviour
     l.SetActive(false);
 
     tip.SetActive(false);
+
     InvokeRepeating("Lasers", timeToStart_Lasers, repeaterTime_Lasers);
     InvokeRepeating("Shooter", timeToStart_Shoot, repeaterTime_Shoot);
     InvokeRepeating("Laser_Sound", timeToStart_Sound, repeaterTime_Sound);
@@ -115,8 +117,9 @@ public class DroneController : MonoBehaviour
 
   void Shooter(){
 
+
+    if(this.transform.gameObject.activeInHierarchy){
     Vector3 thisWay= this.transform.up;
-    //GameObject instaBullet = Instantiate(bullet, transform.position+vectorCorrector, Quaternion.LookRotation(thisWay)) as GameObject;
     GameObject instaBullet = Instantiate(bullet, tip.transform.position+vectorCorrector, Quaternion.LookRotation(thisWay)) as GameObject;
     instaBullet.transform.parent = this.transform;
     Rigidbody rb = instaBullet.GetComponent<Rigidbody>();
@@ -128,6 +131,7 @@ public class DroneController : MonoBehaviour
 
 
     CapsuleController didItHit = instaBullet.GetComponent<CapsuleController>();
+    }
     //Debug.Log("VECTOR IM LOOKING FOR:: "+ this.transform.position+vectorCorrector);
     //Debug.Log(didItHit.hitSaber);
 
@@ -139,7 +143,7 @@ public class DroneController : MonoBehaviour
   void OnCollisionEnter(Collision other){
     //CapsuleController didItHit = instaBullet.GetComponent<CapsuleController>();
 
-      Debug.Log("Hit");
+      Debug.Log("Droid has been hit!!!!");
       //rb.AddRelativeForce(direction*speed, ForceMode.Impulse);
 
 

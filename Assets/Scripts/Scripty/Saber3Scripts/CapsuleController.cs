@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CapsuleController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject droidSpawner;
     public Rigidbody rb;
     public float speed=1.0f;
     public Vector3 direction;
@@ -20,6 +21,7 @@ public class CapsuleController : MonoBehaviour
     {
         rb=this.GetComponent<Rigidbody>();
         direction = Vector3.up;
+      
         //direction=transform.parent.TransformDirection(Vector3.forward);
 
 
@@ -56,15 +58,7 @@ public class CapsuleController : MonoBehaviour
           //rb.MovePosition(newPosition);
           //collisionCount=collisionCount+1;
           //string text=textObject.GetComponent<Text>().text;
-          //string s;
-          //s = collisionCount.ToString();
-          //string text="Collisions: " + s;
-          //textObject.GetComponent<Text>().text=text;
-          //Debug.Log(text);
-          //gameObject.GetComponent<Text>().text = "Your string here, yo!";
-          ScoreTracker.scoreCount+=1;
-          //this.transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
-          //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
+          Invoke("changeDroidHealth", 0.6f);
       }
       else if(other.gameObject.name=="fighter_drone"){
         Destroy (this.gameObject);
@@ -78,5 +72,11 @@ public class CapsuleController : MonoBehaviour
         //Destroy (this.gameObject);
       }
       //mspeed=-mspeed;
+    }
+
+    void changeDroidHealth(){
+      DroidHealthController.dHealthCount-=1;
+      //this.transform.gameObject.SetActive(false);
+      Destroy(this.transform.gameObject);
     }
 }
